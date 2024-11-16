@@ -35,3 +35,4 @@ projectile_scene = ExtResource("5_fh6dp")
 
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("6_u4xk4")
+acceleration = 20.0
