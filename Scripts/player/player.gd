@@ -2,16 +2,17 @@ extends Node2D
 
 const max_speed: int = 160;
 
+@onready var velocity_component = $VelocityComponent;
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	velocity_component.max_speed = max_speed;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var liikumissuund: Vector2 = Input.get_vector("liigu_vasakule", "liigu_paremale", "liigu_üles", "liigu_alla")
 	
-	position += liikumissuund.normalized() * max_speed * delta;
+	velocity_component.target_velocity = liikumissuund.normalized() * max_speed;
 	
 	
 	if (OS.has_feature("pc") and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):

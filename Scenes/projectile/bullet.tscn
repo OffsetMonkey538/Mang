@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://l0rjg8erpm2t"]
+
+[ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="1_w3lk5"]
+[ext_resource type="Texture2D" uid="uid://bata6lsaiw0yp" path="res://Textures/Sprites/Bullet.png" id="1_ybw4v"]
+[ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_6r3uv"]
+[ext_resource type="Script" path="res://Scripts/component/movement/look_component.gd" id="4_ifppw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33nm8"]
+size = Vector2(6, 4)
+
+[node name="Bullet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ybw4v")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+script = ExtResource("1_w3lk5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_33nm8")
+
+[node name="VelocityComponent" type="Node" parent="."]
+script = ExtResource("2_6r3uv")
+max_speed = 300.0
+acceleration = 0.0
+initial_velocity = Vector2(300, 0)
+
+[node name="LookComponent" type="Node" parent="." node_paths=PackedStringArray("velocity_component")]
+script = ExtResource("4_ifppw")
+velocity_component = NodePath("../VelocityComponent")
