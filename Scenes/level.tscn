@@ -10,12 +10,13 @@
 
 [node name="Player" parent="." instance=ExtResource("1_42x0p")]
 
-[node name="EnemySpawner" type="Node2D" parent="Player"]
+[node name="EnemySpawner" type="Node2D" parent="Player" node_paths=PackedStringArray("target")]
 script = ExtResource("2_y1ddf")
 enemy = ExtResource("4_2txsp")
 spawn_frequecy_seconds = 10.0
 spawn_amount = 6
 instant_spawn = true
+target = NodePath("..")
 
 [node name="BackgroundHandler" type="ParallaxBackground" parent="."]
 script = ExtResource("2_nhkaa")
