@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://5gj7arrgfah"]
+[gd_scene load_steps=5 format=3 uid="uid://5gj7arrgfah"]
 
 [ext_resource type="Script" path="res://Scripts/player/player.gd" id="1_5846v"]
 [ext_resource type="Texture2D" uid="uid://dw2v4kotk3g55" path="res://Textures/Sprites/player.png" id="1_ahjtr"]
+[ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="3_cpsa7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ixbor"]
+radius = 17.0
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_5846v")
@@ -14,3 +18,10 @@ texture = ExtResource("1_ahjtr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("3_cpsa7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("CircleShape2D_ixbor")

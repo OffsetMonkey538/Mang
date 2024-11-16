@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://h2ky8dfqwpr3"]
+[gd_scene load_steps=10 format=3 uid="uid://h2ky8dfqwpr3"]
 
 [ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_rc0cm"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_g4h6k"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/component/movement/look_component.gd" id="3_8ndx6"]
 [ext_resource type="Script" path="res://Scripts/component/movement/follow_component.gd" id="4_vsfr0"]
 [ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="5_8gmgn"]
+[ext_resource type="Script" path="res://Scripts/component/hithurt/hitbox_component.gd" id="7_8k7ts"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e18br"]
 radius = 45.0
@@ -47,7 +48,7 @@ collision_layer = 0
 monitorable = false
 script = ExtResource("4_vsfr0")
 velocity_component = NodePath("../VelocityComponent")
-self_area = NodePath("../Area2D")
+self_area = NodePath("../HitboxComponent")
 separation_distance = 10.0
 separation_weight = 0.35
 target_weight = 0.65
@@ -55,9 +56,11 @@ target_weight = 0.65
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FollowComponent"]
 shape = SubResource("CircleShape2D_e18br")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 collision_mask = 0
 monitoring = false
+script = ExtResource("7_8k7ts")
+health_component = NodePath("../HealthComponent")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_l8e81")
