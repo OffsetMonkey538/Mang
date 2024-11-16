@@ -46,4 +46,42 @@ offset_bottom = 48.0
 pivot_offset = Vector2(48, 48)
 texture = ExtResource("3_rdv8j")
 
+[node name="RightJoystick" parent="InGameHUD/Joysticks" instance=ExtResource("1_685ag")]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 1.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+deadzone_size = 3.0
+clampzone_size = 28.0
+joystick_mode = 1
+visibility_mode = 2
+action_left = "vaata_vasakule"
+action_right = "vaata_paremale"
+action_up = "vaata_üles"
+action_down = "vaata_alla"
+
+[node name="Base" parent="InGameHUD/Joysticks/RightJoystick" index="0"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("2_rcjn5")
+
+[node name="Tip" parent="InGameHUD/Joysticks/RightJoystick/Base" index="0"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("3_rdv8j")
+
 [editable path="InGameHUD/Joysticks/LeftJoystick"]
+[editable path="InGameHUD/Joysticks/RightJoystick"]
