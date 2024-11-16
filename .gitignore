@@ -4,3 +4,8 @@
 
 # Exported builds
 builds/
+
+# GodotEnv addons
+addons/*
+!addons/.editorconfig
+.addons/*

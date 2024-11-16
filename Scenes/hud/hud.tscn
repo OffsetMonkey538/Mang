@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmawjn2crafk7"]
+
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_685ag"]
+[ext_resource type="Texture2D" uid="uid://bx5leal2gcyyt" path="res://Textures/Hud/Joystick/Outline.png" id="2_rcjn5"]
+[ext_resource type="Texture2D" uid="uid://dhunw3yxds5pm" path="res://Textures/Hud/Joystick/Tip.png" id="3_rdv8j"]
+
+[node name="HUD" type="CanvasLayer"]
+
+[node name="InGameHUD" type="CanvasLayer" parent="."]
+
+[node name="Joysticks" type="CanvasLayer" parent="InGameHUD"]
+
+[node name="LeftJoystick" parent="InGameHUD/Joysticks" instance=ExtResource("1_685ag")]
+anchors_preset = -1
+anchor_top = 0.0
+anchor_right = 0.5
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+deadzone_size = 3.0
+clampzone_size = 28.0
+joystick_mode = 1
+visibility_mode = 2
+action_left = "liigu_vasakule"
+action_right = "liigu_paremale"
+action_up = "liigu_üles"
+action_down = "liigu_alla"
+
+[node name="Base" parent="InGameHUD/Joysticks/LeftJoystick" index="0"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("2_rcjn5")
+
+[node name="Tip" parent="InGameHUD/Joysticks/LeftJoystick/Base" index="0"]
+offset_left = -48.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+pivot_offset = Vector2(48, 48)
+texture = ExtResource("3_rdv8j")
+
+[editable path="InGameHUD/Joysticks/LeftJoystick"]
