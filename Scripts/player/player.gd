@@ -2,11 +2,14 @@ extends Node2D
 
 const max_speed: int = 160;
 
-@onready var velocity_component = $VelocityComponent;
+@onready var velocity_component: VelocityComponent = $VelocityComponent;
+@onready var health_component: HealthComponent = $HealthComponent;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	velocity_component.max_speed = max_speed;
+	
+	HudManager.player_health_bar.set_health_component(health_component);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

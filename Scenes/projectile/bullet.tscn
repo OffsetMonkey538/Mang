@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://l0rjg8erpm2t"]
+[gd_scene load_steps=7 format=3 uid="uid://l0rjg8erpm2t"]
 
 [ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="1_w3lk5"]
 [ext_resource type="Texture2D" uid="uid://bata6lsaiw0yp" path="res://Textures/Sprites/Bullet.png" id="1_ybw4v"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_6r3uv"]
 [ext_resource type="Script" path="res://Scripts/component/movement/look_component.gd" id="4_ifppw"]
+[ext_resource type="Script" path="res://Scripts/component/despawn_timer.gd" id="5_x2idc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_33nm8"]
 size = Vector2(6, 4)
@@ -14,6 +15,8 @@ size = Vector2(6, 4)
 texture = ExtResource("1_ybw4v")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+monitoring = false
 script = ExtResource("1_w3lk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
@@ -28,3 +31,7 @@ initial_velocity = Vector2(300, 0)
 [node name="LookComponent" type="Node" parent="." node_paths=PackedStringArray("velocity_component")]
 script = ExtResource("4_ifppw")
 velocity_component = NodePath("../VelocityComponent")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+script = ExtResource("5_x2idc")

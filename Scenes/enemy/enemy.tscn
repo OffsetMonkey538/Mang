@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://h2ky8dfqwpr3"]
+[gd_scene load_steps=11 format=3 uid="uid://h2ky8dfqwpr3"]
 
 [ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_rc0cm"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_g4h6k"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/component/movement/follow_component.gd" id="4_vsfr0"]
 [ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="5_8gmgn"]
 [ext_resource type="Script" path="res://Scripts/component/hithurt/hitbox_component.gd" id="7_8k7ts"]
+[ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="8_luby5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e18br"]
 radius = 45.0
@@ -63,4 +64,12 @@ script = ExtResource("7_8k7ts")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_l8e81")
+
+[node name="HurtboxComponent" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("8_luby5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_l8e81")

@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://5gj7arrgfah"]
+[gd_scene load_steps=9 format=3 uid="uid://5gj7arrgfah"]
 
 [ext_resource type="Script" path="res://Scripts/player/player.gd" id="1_5846v"]
 [ext_resource type="Texture2D" uid="uid://dw2v4kotk3g55" path="res://Textures/Sprites/player.png" id="1_ahjtr"]
-[ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="3_cpsa7"]
 [ext_resource type="Script" path="res://Scripts/component/projectile/projectile_shooter.gd" id="4_wmufw"]
 [ext_resource type="PackedScene" uid="uid://l0rjg8erpm2t" path="res://Scenes/projectile/bullet.tscn" id="5_fh6dp"]
+[ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="6_1pumj"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="6_u4xk4"]
+[ext_resource type="Script" path="res://Scripts/component/hithurt/player_hitbox_component.gd" id="7_5ttph"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ixbor"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_l17p0"]
 radius = 17.0
 
 [node name="Player" type="Node2D"]
@@ -22,13 +23,6 @@ texture = ExtResource("1_ahjtr")
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
 
-[node name="HurtboxComponent" type="Area2D" parent="."]
-collision_layer = 0
-script = ExtResource("3_cpsa7")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-shape = SubResource("CircleShape2D_ixbor")
-
 [node name="ProjectileShooter" type="Node2D" parent="."]
 script = ExtResource("4_wmufw")
 projectile_scene = ExtResource("5_fh6dp")
@@ -36,3 +30,15 @@ projectile_scene = ExtResource("5_fh6dp")
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("6_u4xk4")
 acceleration = 20.0
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("6_1pumj")
+
+[node name="PlayerHitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_5ttph")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitboxComponent"]
+shape = SubResource("CircleShape2D_l17p0")
