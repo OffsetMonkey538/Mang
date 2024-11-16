@@ -11,3 +11,6 @@ metadata/_edit_group_ = true
 rotation = 1.57329
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_ahjtr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true

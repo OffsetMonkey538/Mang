@@ -8,8 +8,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_42x0p")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="BackgroundHandler" type="ParallaxBackground" parent="."]
 script = ExtResource("2_nhkaa")
 sprite = ExtResource("3_5fia5")
