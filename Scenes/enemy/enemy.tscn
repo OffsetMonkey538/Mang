@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://h2ky8dfqwpr3"]
+
+[ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_rc0cm"]
+
+[node name="Enemy" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_rc0cm")
