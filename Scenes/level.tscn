@@ -5,3 +5,5 @@
 [node name="Level" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_42x0p")]
+
+[node name="Camera2D" type="Camera2D" parent="."]

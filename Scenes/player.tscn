@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://5gj7arrgfah"]
+[gd_scene load_steps=3 format=3 uid="uid://5gj7arrgfah"]
 
+[ext_resource type="Script" path="res://Scripts/player/player.gd" id="1_5846v"]
 [ext_resource type="Texture2D" uid="uid://dw2v4kotk3g55" path="res://Textures/Sprites/player.png" id="1_ahjtr"]
 
 [node name="Player" type="Node2D"]
+script = ExtResource("1_5846v")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.57329
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_ahjtr")
-
-[node name="Camera2D" type="Camera2D" parent="."]
