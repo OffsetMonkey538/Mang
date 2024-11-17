@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c4n5tv0wvds6r"]
+
+[ext_resource type="Shader" path="res://Shaders/color_change.gdshader" id="1_cshss"]
+
+[resource]
+shader = ExtResource("1_cshss")
+shader_parameter/hue_shift = 0.0

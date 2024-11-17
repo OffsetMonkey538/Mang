@@ -3,6 +3,8 @@ extends Node
 var xp: float = 0;
 var xp_level: int = 0;
 
+var difficulty_multiplier: float = 1;
+
 var upgrades: UpgradeManager;
 
 signal xp_changed(old: float, new: float);
@@ -38,5 +40,6 @@ func get_xp_for_next_level() -> int:
 func reset() -> void:
 	xp = 0;
 	xp_level = 0;
+	difficulty_multiplier = 1;
 	upgrades.free();
 	Callable(func(): upgrades = UpgradeManager.new()).call_deferred();

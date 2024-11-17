@@ -45,7 +45,7 @@ acceleration = 10.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("5_nxmv5")
-max_health = 10
+max_health = 50
 
 [node name="RangedFollowComponent" type="Node2D" parent="." node_paths=PackedStringArray("velocity_component")]
 script = ExtResource("6_ysmon")

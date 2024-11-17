@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cdwoqj04w3tsq"]
+[gd_scene load_steps=9 format=3 uid="uid://cdwoqj04w3tsq"]
 
 [ext_resource type="PackedScene" uid="uid://5gj7arrgfah" path="res://Scenes/player.tscn" id="1_42x0p"]
 [ext_resource type="Script" path="res://Scripts/level/level.gd" id="1_wp8kg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://csjpuxkoi84kd" path="res://Textures/Hud/background.png" id="3_5fia5"]
 [ext_resource type="PackedScene" uid="uid://h2ky8dfqwpr3" path="res://Scenes/enemy/enemy.tscn" id="4_2txsp"]
 [ext_resource type="PackedScene" uid="uid://busdv4lnqjuh7" path="res://Scenes/enemy/boss.tscn" id="7_e1um4"]
+[ext_resource type="Script" path="res://Scripts/level/DifficultyManager.gd" id="8_37x7n"]
 
 [node name="Level" type="Node"]
 script = ExtResource("1_wp8kg")
@@ -16,8 +17,8 @@ script = ExtResource("1_wp8kg")
 [node name="EnemySpawner" type="Node2D" parent="Player" node_paths=PackedStringArray("target")]
 script = ExtResource("2_y1ddf")
 enemy = ExtResource("4_2txsp")
-spawn_frequecy_seconds = 10.0
-spawn_amount = 6
+spawn_frequecy_seconds = 15.0
+spawn_amount = 3
 instant_spawn = true
 target = NodePath("..")
 
@@ -26,10 +27,14 @@ script = ExtResource("2_y1ddf")
 enemy = ExtResource("7_e1um4")
 spawn_frequecy_seconds = 60.0
 spawn_radius = 300.0
-instant_spawn = true
 target = NodePath("..")
 
 [node name="BackgroundHandler" type="ParallaxBackground" parent="."]
 script = ExtResource("2_nhkaa")
 sprite = ExtResource("3_5fia5")
 sprite_scale = Vector2(16.5, 16.5)
+
+[node name="DifficultyManager" type="Node" parent="." node_paths=PackedStringArray("boss_spawner", "enemy_spawner")]
+script = ExtResource("8_37x7n")
+boss_spawner = NodePath("../Player/BigEnemySpawner")
+enemy_spawner = NodePath("../Player/EnemySpawner")

@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://h2ky8dfqwpr3"]
+[gd_scene load_steps=14 format=3 uid="uid://h2ky8dfqwpr3"]
 
+[ext_resource type="Script" path="res://Scripts/enemy/enemy.gd" id="1_hcem0"]
 [ext_resource type="Texture2D" uid="uid://cmer1xi8eydd3" path="res://Textures/Sprites/enemy.png" id="1_rc0cm"]
+[ext_resource type="Material" uid="uid://c4n5tv0wvds6r" path="res://Materials/enemy_material.tres" id="1_vtaye"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_g4h6k"]
 [ext_resource type="Script" path="res://Scripts/component/bar/health_bar.gd" id="2_rxqc1"]
 [ext_resource type="Script" path="res://Scripts/component/movement/look_component.gd" id="3_8ndx6"]
@@ -17,8 +19,10 @@ radius = 45.0
 radius = 17.0
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_hcem0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_vtaye")
 rotation = 1.5708
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_rc0cm")
@@ -44,7 +48,7 @@ velocity_component = NodePath("../VelocityComponent")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("5_8gmgn")
-max_health = 10
+max_health = 5
 
 [node name="FollowComponent" type="Area2D" parent="." node_paths=PackedStringArray("velocity_component", "self_area")]
 collision_layer = 0

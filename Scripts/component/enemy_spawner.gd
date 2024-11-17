@@ -9,12 +9,15 @@ class_name EnemySpawner extends Node2D
 
 var _time: float = 0;
 
+signal before_spawn();
+
 func _ready() -> void:
 	_time = spawn_frequecy_seconds;
 	if (instant_spawn): _spawn_enemies();
 
 func _process(delta: float) -> void:
 	if (_time <= 0):
+		before_spawn.emit();
 		_spawn_enemies();
 		_time = spawn_frequecy_seconds;
 		return;
