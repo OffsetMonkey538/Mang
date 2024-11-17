@@ -4,6 +4,7 @@ class_name ProjectileShooter extends Node2D
 @export var projectile_count: int = 1;
 @export var multishot_range_degrees: float = 0;
 @export var damage: int = 1;
+@export var piercing: int = 1;
 @export var projectile_scene: PackedScene;
 
 @onready var _multishot_range_radians: float = deg_to_rad(multishot_range_degrees);
@@ -30,6 +31,7 @@ func _shoot(rotation_offset: float):
 	new_projectile.rotation = global_rotation + rotation_offset;
 	new_projectile.find_child("HurtboxComponent").damage = damage;
 	new_projectile.find_child("VelocityComponent").initial_velocity = new_projectile.find_child("VelocityComponent").initial_velocity.rotated(new_projectile.rotation) + get_parent().find_child("VelocityComponent").velocity;
+	new_projectile.find_child("PiercingComponent").piercing = piercing;
 	
 	LevelManager.level_instance.add_child(new_projectile);
 
