@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SuperUpgradeResource" load_steps=4 format=3 uid="uid://bueniror5t03s"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeModifierResource.gd" id="1_guesu"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/SuperUpgradeResource.gd" id="2_71oyn"]
+
+[sub_resource type="Resource" id="Resource_mhxj0"]
+script = ExtResource("1_guesu")
+nimi = "heal_max"
+"väärtus" = 0.0
+
+[resource]
+script = ExtResource("2_71oyn")
+nimi = "Heal"
+maksimum_tase = -1
+effekt = Array[ExtResource("1_guesu")]([SubResource("Resource_mhxj0")])

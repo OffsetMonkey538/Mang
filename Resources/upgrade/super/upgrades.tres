@@ -1,9 +1,10 @@
-[gd_resource type="Resource" script_class="UpgradesStorageResource" load_steps=4 format=3 uid="uid://r3ymxpafstmd"]
+[gd_resource type="Resource" script_class="UpgradesStorageResource" load_steps=5 format=3 uid="uid://dla83el313yok"]
 
-[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradesStorageResource.gd" id="1_chd4c"]
-[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="2_pvdgs"]
-[ext_resource type="Resource" uid="uid://d0pjmpbe5orcm" path="res://Resources/upgrade/super/new_resource.tres" id="3_mk2gx"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradesStorageResource.gd" id="1_8rmy8"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="2_ca311"]
+[ext_resource type="Resource" uid="uid://bueniror5t03s" path="res://Resources/upgrade/super/max_heal.tres" id="3_a0n1h"]
+[ext_resource type="Resource" uid="uid://h11km5hmuj0" path="res://Resources/upgrade/super/multishot.tres" id="4_sj20n"]
 
 [resource]
-script = ExtResource("1_chd4c")
-value = Array[ExtResource("2_pvdgs")]([ExtResource("3_mk2gx")])
+script = ExtResource("1_8rmy8")
+value = Array[ExtResource("2_ca311")]([ExtResource("3_a0n1h"), ExtResource("4_sj20n")])

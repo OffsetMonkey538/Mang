@@ -1,9 +1,14 @@
-[gd_resource type="Resource" script_class="UpgradesStorageResource" load_steps=4 format=3 uid="uid://mw7ue0nw1dll"]
+[gd_resource type="Resource" script_class="UpgradesStorageResource" load_steps=9 format=3 uid="uid://df3g6dng55k7s"]
 
 [ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradesStorageResource.gd" id="1_7yrp2"]
 [ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="2_87jsw"]
-[ext_resource type="Resource" uid="uid://cvlgpfyblgyjq" path="res://Resources/upgrade/normal/liikumiskiirus.tres" id="3_4ehar"]
+[ext_resource type="Resource" uid="uid://slm17xb0soqc" path="res://Resources/upgrade/normal/damage.tres" id="3_guqy0"]
+[ext_resource type="Resource" uid="uid://5faa6sqfo6lg" path="res://Resources/upgrade/normal/magnet.tres" id="4_blnkg"]
+[ext_resource type="Resource" uid="uid://y0slcemwxw0c" path="res://Resources/upgrade/normal/max_health.tres" id="5_jakhk"]
+[ext_resource type="Resource" uid="uid://dknsgppbycqh6" path="res://Resources/upgrade/normal/piercing.tres" id="6_cocin"]
+[ext_resource type="Resource" uid="uid://hjt5fert3g45" path="res://Resources/upgrade/normal/shoot_speed.tres" id="7_gpyke"]
+[ext_resource type="Resource" uid="uid://dnh7ufw3pxifp" path="res://Resources/upgrade/normal/speed.tres" id="8_70vdd"]
 
 [resource]
 script = ExtResource("1_7yrp2")
-value = Array[ExtResource("2_87jsw")]([ExtResource("3_4ehar")])
+value = Array[ExtResource("2_87jsw")]([ExtResource("3_guqy0"), ExtResource("4_blnkg"), ExtResource("5_jakhk"), ExtResource("6_cocin"), ExtResource("7_gpyke"), ExtResource("8_70vdd")])

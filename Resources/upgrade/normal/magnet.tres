@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://5faa6sqfo6lg"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeModifierResource.gd" id="1_8p5ea"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="2_jlh1b"]
+
+[sub_resource type="Resource" id="Resource_kwkui"]
+script = ExtResource("1_8p5ea")
+nimi = "pickup_range"
+"väärtus" = 1.0
+
+[resource]
+script = ExtResource("2_jlh1b")
+nimi = "Magnet"
+maksimum_tase = 3
+effekt = Array[ExtResource("1_8p5ea")]([SubResource("Resource_kwkui")])

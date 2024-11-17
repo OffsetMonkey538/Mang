@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="UpgradeResource" load_steps=4 format=3 uid="uid://slm17xb0soqc"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeModifierResource.gd" id="1_etbqt"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="2_7x0tn"]
+
+[sub_resource type="Resource" id="Resource_lwbln"]
+script = ExtResource("1_etbqt")
+nimi = "damage"
+"väärtus" = 2.0
+
+[resource]
+script = ExtResource("2_7x0tn")
+nimi = "Damage"
+maksimum_tase = -1
+effekt = Array[ExtResource("1_etbqt")]([SubResource("Resource_lwbln")])

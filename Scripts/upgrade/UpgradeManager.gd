@@ -111,7 +111,16 @@ func apply_effect(upgrade_nimi: String, effekt: UpgradeModifierResource) -> void
 	var väärtus: float = effekt.väärtus;
 	
 	match effekt.nimi:
-		"liikumiskiirus": LevelManager.player.velocity_component.max_speed += väärtus; 
+		"health": LevelManager.player.health_component.add_health(roundi(väärtus));
+		"max_health": LevelManager.player.health_component.add_max_health(roundi(väärtus));
+		"speed": LevelManager.player.velocity_component.max_speed += väärtus;
+		"damage": LevelManager.player.shooter.damage += roundi(väärtus);
+		"shoot_speed": LevelManager.player.shooter.shoot_timer.wait_time += väärtus;
+		"piercing": LevelManager.player.shooter.piercing += roundi(väärtus);
+		"bullet_count": LevelManager.player.shooter.projectile_count += roundi(väärtus);
+		"bullet_spread": LevelManager.player.shooter.set_spread(LevelManager.player.shooter.multishot_range_degrees + väärtus);
+		"pickup_range": LevelManager.player.pickup.scale += Vector2(väärtus, väärtus);
+		"heal_max": LevelManager.player.health_component.set_health(LevelManager.player.health_component.max_health);
 		var name: push_error("Upgrade '%s' has unknown effect '%s'!" % [upgrade_nimi, name]);
 
 func refresh_options() -> void:

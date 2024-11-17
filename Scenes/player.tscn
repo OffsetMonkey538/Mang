@@ -26,6 +26,8 @@ position_smoothing_enabled = true
 
 [node name="ProjectileShooter" type="Node2D" parent="."]
 script = ExtResource("4_wmufw")
+shoot_speed = 1.5
+damage = 2
 projectile_scene = ExtResource("5_fh6dp")
 bullet_collision_mask = 1
 

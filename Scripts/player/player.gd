@@ -2,6 +2,8 @@ class_name Player extends Node2D
 
 @onready var velocity_component: VelocityComponent = $VelocityComponent;
 @onready var health_component: HealthComponent = $HealthComponent;
+@onready var shooter: ProjectileShooter = $ProjectileShooter;
+@onready var pickup: CollisionShape2D = $ItemPickup/CollisionShape2D;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
