@@ -29,7 +29,7 @@ rotation = 1.5708
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_mt1rw")
 
-[node name="HealthBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("health_component", "look_component")]
+[node name="HealthBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("health_component")]
 offset_left = -28.0
 offset_top = -32.0
 offset_right = 28.0
@@ -37,7 +37,6 @@ offset_bottom = -24.0
 pivot_offset = Vector2(28, 32)
 script = ExtResource("2_coe03")
 health_component = NodePath("../HealthComponent")
-look_component = NodePath("")
 
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("3_qc88g")
@@ -49,7 +48,6 @@ script = ExtResource("5_nxmv5")
 max_health = 10
 
 [node name="RangedFollowComponent" type="Node2D" parent="." node_paths=PackedStringArray("velocity_component")]
-scale = Vector2(1, 1)
 script = ExtResource("6_ysmon")
 velocity_component = NodePath("../VelocityComponent")
 target_separation_distance = 200.0

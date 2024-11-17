@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SuperUpgradeResource" load_steps=7 format=3 uid="uid://d0pjmpbe5orcm"]
+
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeModifierResource.gd" id="1_lqps0"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/SuperUpgradeResource.gd" id="2_m4aqr"]
+[ext_resource type="Script" path="res://Scripts/upgrade/resource/UpgradeResource.gd" id="3_qhny0"]
+
+[sub_resource type="Resource" id="Resource_qwye5"]
+script = ExtResource("1_lqps0")
+nimi = "liikumiskiirus"
+"väärtus" = 200.0
+
+[sub_resource type="Resource" id="Resource_85yyj"]
+script = ExtResource("1_lqps0")
+nimi = "liikumiskiirus"
+"väärtus" = 150.0
+
+[sub_resource type="Resource" id="Resource_m1io5"]
+script = ExtResource("3_qhny0")
+nimi = "test"
+maksimum_tase = 3
+effekt = Array[ExtResource("1_lqps0")]([SubResource("Resource_85yyj")])
+
+[resource]
+script = ExtResource("2_m4aqr")
+unlock = SubResource("Resource_m1io5")
+nimi = "Test"
+maksimum_tase = 0
+effekt = Array[ExtResource("1_lqps0")]([SubResource("Resource_qwye5")])
