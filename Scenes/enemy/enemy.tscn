@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://h2ky8dfqwpr3"]
+[gd_scene load_steps=12 format=3 uid="uid://h2ky8dfqwpr3"]
 
 [ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_rc0cm"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="2_g4h6k"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="5_8gmgn"]
 [ext_resource type="Script" path="res://Scripts/component/hithurt/hitbox_component.gd" id="7_8k7ts"]
 [ext_resource type="Script" path="res://Scripts/component/hithurt/hurtbox_component.gd" id="8_luby5"]
+[ext_resource type="Script" path="res://Scripts/item/loot_table_component.gd" id="9_612km"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e18br"]
 radius = 45.0
@@ -73,3 +74,11 @@ script = ExtResource("8_luby5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 shape = SubResource("CircleShape2D_l8e81")
+
+[node name="LootTableComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("9_612km")
+loot_table = {
+"xp": 100
+}
+rolls = 5
+health_component = NodePath("../HealthComponent")

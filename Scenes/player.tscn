@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://5gj7arrgfah"]
+[gd_scene load_steps=10 format=3 uid="uid://5gj7arrgfah"]
 
 [ext_resource type="Script" path="res://Scripts/player/player.gd" id="1_5846v"]
 [ext_resource type="Texture2D" uid="uid://dw2v4kotk3g55" path="res://Textures/Sprites/player.png" id="1_ahjtr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="6_1pumj"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="6_u4xk4"]
 [ext_resource type="Script" path="res://Scripts/component/hithurt/player_hitbox_component.gd" id="7_5ttph"]
+[ext_resource type="Script" path="res://Scripts/item/item_pickup.gd" id="8_psw37"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l17p0"]
 radius = 17.0
@@ -41,4 +42,13 @@ script = ExtResource("7_5ttph")
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitboxComponent"]
+shape = SubResource("CircleShape2D_l17p0")
+
+[node name="ItemPickup" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("8_psw37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickup"]
 shape = SubResource("CircleShape2D_l17p0")

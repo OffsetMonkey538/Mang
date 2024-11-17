@@ -71,6 +71,7 @@ vaata_alla={
 
 2d_physics/layer_1="Enemies"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Dropped Item"
 
 [rendering]
 

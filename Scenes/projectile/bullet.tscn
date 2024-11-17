@@ -16,7 +16,7 @@ texture = ExtResource("1_ybw4v")
 
 [node name="HurtboxComponent" type="Area2D" parent="."]
 collision_layer = 0
-monitoring = false
+monitorable = false
 script = ExtResource("1_w3lk5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
