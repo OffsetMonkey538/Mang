@@ -10,7 +10,8 @@ var target_velocity: Vector2 = Vector2.ZERO;
 signal position_changed();
 
 func _process(delta: float) -> void:
-	velocity = lerp(velocity, target_velocity, delta * acceleration);
+	if (acceleration == -1): velocity = target_velocity;
+	else: velocity = lerp(velocity, target_velocity, delta * acceleration);
 	
 	velocity = velocity.limit_length(max_speed);
 	

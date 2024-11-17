@@ -27,7 +27,7 @@ func _spawn_enemies():
 		var new_enemy: Node2D = enemy.instantiate();
 		
 		new_enemy.position = global_position + Vector2.UP.rotated(i * radians_per_enemy) * spawn_radius;
-		for follow_component: FollowComponent in new_enemy.find_children("*", "FollowComponent"):
+		for follow_component in new_enemy.find_children("*FollowComponent"):
 			follow_component.target = target;
 		
 		LevelManager.level_instance.add_child.call_deferred(new_enemy);

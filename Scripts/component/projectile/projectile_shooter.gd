@@ -1,3 +1,5 @@
+# TODO: for when adding the boss guy, lines 11, 36
+
 class_name ProjectileShooter extends Node2D
 
 @export var shoot_speed: float = 1;
@@ -6,6 +8,7 @@ class_name ProjectileShooter extends Node2D
 @export var damage: int = 1;
 @export var piercing: int = 1;
 @export var projectile_scene: PackedScene;
+@export_flags_2d_physics var bullet_collision_mask: int;
 
 @onready var _multishot_range_radians: float = deg_to_rad(multishot_range_degrees);
 
@@ -30,6 +33,7 @@ func _shoot(rotation_offset: float):
 	new_projectile.position = global_position;
 	new_projectile.rotation = global_rotation + rotation_offset;
 	new_projectile.find_child("HurtboxComponent").damage = damage;
+	new_projectile.find_child("HurtboxComponent").collision_mask = bullet_collision_mask;
 	new_projectile.find_child("VelocityComponent").initial_velocity = new_projectile.find_child("VelocityComponent").initial_velocity.rotated(new_projectile.rotation) + get_parent().find_child("VelocityComponent").velocity;
 	new_projectile.find_child("PiercingComponent").piercing = piercing;
 	

@@ -36,6 +36,7 @@ look_component = NodePath("../LookComponent")
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("2_g4h6k")
 max_speed = 200.0
+acceleration = 1.5
 
 [node name="LookComponent" type="Node" parent="." node_paths=PackedStringArray("velocity_component")]
 script = ExtResource("3_8ndx6")

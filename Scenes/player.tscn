@@ -27,6 +27,7 @@ position_smoothing_enabled = true
 [node name="ProjectileShooter" type="Node2D" parent="."]
 script = ExtResource("4_wmufw")
 projectile_scene = ExtResource("5_fh6dp")
+bullet_collision_mask = 1
 
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("6_u4xk4")

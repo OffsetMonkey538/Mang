@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://busdv4lnqjuh7"]
+
+[ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_mt1rw"]
+[ext_resource type="Script" path="res://Scripts/component/bar/health_bar.gd" id="2_coe03"]
+[ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="3_qc88g"]
+[ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="5_nxmv5"]
+[ext_resource type="Script" path="res://Scripts/component/movement/ranged_follow_component.gd" id="6_ysmon"]
+[ext_resource type="Script" path="res://Scripts/component/hithurt/hitbox_component.gd" id="7_suwwa"]
+[ext_resource type="Script" path="res://Scripts/component/projectile/projectile_shooter.gd" id="8_4mljk"]
+[ext_resource type="PackedScene" uid="uid://l0rjg8erpm2t" path="res://Scenes/projectile/bullet.tscn" id="9_ioxpc"]
+[ext_resource type="Script" path="res://Scripts/item/loot_table_component.gd" id="9_tr6p7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l8e81"]
+radius = 17.0
+
+[node name="Boss" type="Node2D"]
+scale = Vector2(5, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("1_mt1rw")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." node_paths=PackedStringArray("health_component", "look_component")]
+offset_left = -28.0
+offset_top = -32.0
+offset_right = 28.0
+offset_bottom = -24.0
+pivot_offset = Vector2(28, 32)
+script = ExtResource("2_coe03")
+health_component = NodePath("../HealthComponent")
+look_component = NodePath("")
+
+[node name="VelocityComponent" type="Node" parent="."]
+script = ExtResource("3_qc88g")
+max_speed = 150.0
+acceleration = 10.0
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("5_nxmv5")
+max_health = 10
+
+[node name="RangedFollowComponent" type="Node2D" parent="." node_paths=PackedStringArray("velocity_component")]
+scale = Vector2(1, 1)
+script = ExtResource("6_ysmon")
+velocity_component = NodePath("../VelocityComponent")
+target_separation_distance = 200.0
+
+[node name="HitboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
+collision_mask = 0
+monitoring = false
+script = ExtResource("7_suwwa")
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+shape = SubResource("CircleShape2D_l8e81")
+
+[node name="LootTableComponent" type="Node" parent="." node_paths=PackedStringArray("health_component")]
+script = ExtResource("9_tr6p7")
+loot_table = {
+"xp": 100
+}
+rolls = 5
+health_component = NodePath("../HealthComponent")
+
+[node name="ProjectileShooter" type="Node2D" parent="."]
+script = ExtResource("8_4mljk")
+shoot_speed = 2.0
+projectile_scene = ExtResource("9_ioxpc")
+bullet_collision_mask = 2
