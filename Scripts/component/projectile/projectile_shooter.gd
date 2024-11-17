@@ -1,5 +1,3 @@
-# TODO: for when adding the boss guy, lines 11, 36
-
 class_name ProjectileShooter extends Node2D
 
 @export var shoot_speed: float = 1;

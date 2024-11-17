@@ -1,6 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://busdv4lnqjuh7"]
+[gd_scene load_steps=14 format=3 uid="uid://busdv4lnqjuh7"]
 
-[ext_resource type="Texture2D" uid="uid://b7kmg2u1l8hje" path="res://Textures/Sprites/enemy.png" id="1_mt1rw"]
+[ext_resource type="Shader" path="res://Shaders/color_change.gdshader" id="1_74vrb"]
+[ext_resource type="Script" path="res://Scripts/enemy/boss.gd" id="1_mn077"]
+[ext_resource type="Texture2D" uid="uid://cmer1xi8eydd3" path="res://Textures/Sprites/enemy.png" id="1_mt1rw"]
 [ext_resource type="Script" path="res://Scripts/component/bar/health_bar.gd" id="2_coe03"]
 [ext_resource type="Script" path="res://Scripts/component/movement/velocity_component.gd" id="3_qc88g"]
 [ext_resource type="Script" path="res://Scripts/component/health/health_component.gd" id="5_nxmv5"]
@@ -10,13 +12,19 @@
 [ext_resource type="PackedScene" uid="uid://l0rjg8erpm2t" path="res://Scenes/projectile/bullet.tscn" id="9_ioxpc"]
 [ext_resource type="Script" path="res://Scripts/item/loot_table_component.gd" id="9_tr6p7"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uogtl"]
+shader = ExtResource("1_74vrb")
+shader_parameter/hue_shift = 0.0
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_l8e81"]
 radius = 17.0
 
 [node name="Boss" type="Node2D"]
 scale = Vector2(5, 5)
+script = ExtResource("1_mn077")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_uogtl")
 rotation = 1.5708
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("1_mt1rw")
