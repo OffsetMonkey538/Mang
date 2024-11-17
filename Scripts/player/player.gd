@@ -6,6 +6,13 @@ class_name Player extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	HudManager.player_health_bar.set_health_component(health_component);
+	
+	# Restart game when player dies
+	health_component.death.connect(func():
+		LevelManager.unload_level();
+		HudManager.start_button.show();
+		HudManager.hide_joysticks();
+	);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

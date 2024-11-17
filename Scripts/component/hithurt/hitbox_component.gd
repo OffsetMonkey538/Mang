@@ -6,7 +6,7 @@ signal hit(by: HurtboxComponent)
 
 func hurtbox_entered(hurtbox: HurtboxComponent) -> void:
 	if hurtbox.is_queued_for_deletion(): return;
-	if self.is_queued_for_deletion(): return;
+	if get_parent().is_queued_for_deletion(): return;
 	
 	hit.emit(hurtbox);
 	

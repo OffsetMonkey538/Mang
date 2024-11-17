@@ -22,6 +22,3 @@ func reload_level() -> void:
 	
 		player = level_instance.get_node("Player");
 	).call_deferred();
-
-func _ready() -> void:
-	reload_level();

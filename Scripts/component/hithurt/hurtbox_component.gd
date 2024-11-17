@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func hitbox_entered(area: Area2D) -> void:
 	if not area is HitboxComponent: return;
-	if is_queued_for_deletion(): return;
+	if get_parent().is_queued_for_deletion(): return;
 	
 	area.hurtbox_entered(self);
 	hit.emit(area);

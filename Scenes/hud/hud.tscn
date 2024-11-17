@@ -12,6 +12,7 @@
 [node name="InGameHUD" type="CanvasLayer" parent="."]
 
 [node name="Joysticks" type="CanvasLayer" parent="InGameHUD"]
+process_mode = 4
 
 [node name="LeftJoystick" parent="InGameHUD/Joysticks" instance=ExtResource("1_685ag")]
 anchors_preset = -1
@@ -157,6 +158,21 @@ text = "Upgrade 1"
 custom_minimum_size = Vector2(88, 221)
 layout_mode = 2
 text = "Upgrade 1"
+
+[node name="StartButton" type="Button" parent="."]
+custom_minimum_size = Vector2(140, 80)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -15.5
+offset_right = 23.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start"
 
 [editable path="InGameHUD/Joysticks/LeftJoystick"]
 [editable path="InGameHUD/Joysticks/RightJoystick"]
