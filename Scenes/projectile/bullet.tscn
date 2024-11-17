@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_33nm8")
 
 [node name="VelocityComponent" type="Node" parent="."]
 script = ExtResource("2_6r3uv")
-max_speed = 300.0
+max_speed = 1e+11
 acceleration = 0.0
 initial_velocity = Vector2(300, 0)
 

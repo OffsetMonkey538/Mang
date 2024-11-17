@@ -1,7 +1,7 @@
 extends Node
 
 var level_instance: Node = null;
-var player: Node = null;
+var player: Player = null;
 
 func unload_level() -> void:
 	Callable(func():

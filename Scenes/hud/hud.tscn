@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dmawjn2crafk7"]
+[gd_scene load_steps=7 format=3 uid="uid://dmawjn2crafk7"]
 
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_685ag"]
 [ext_resource type="Texture2D" uid="uid://bx5leal2gcyyt" path="res://Textures/Hud/Joystick/Outline.png" id="2_rcjn5"]
 [ext_resource type="Texture2D" uid="uid://dhunw3yxds5pm" path="res://Textures/Hud/Joystick/Tip.png" id="3_rdv8j"]
 [ext_resource type="Script" path="res://Scripts/component/bar/xp_bar.gd" id="5_iwl4p"]
 [ext_resource type="Script" path="res://Scripts/component/bar/player_health_bar.gd" id="5_qae2o"]
+[ext_resource type="Texture2D" uid="uid://nj41c1xbsgnc" path="res://Textures/Hud/overlay.png" id="6_j66x6"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -106,6 +107,56 @@ offset_right = 130.0
 offset_bottom = 54.0
 grow_horizontal = 2
 script = ExtResource("5_iwl4p")
+
+[node name="LevelupHUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Overlay" type="TextureRect" parent="LevelupHUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_j66x6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelupHUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Levelup Text" type="Label" parent="LevelupHUD/VBoxContainer"]
+layout_mode = 2
+text = "Uus tase!
+
+valige üks allolevatest täiustustest"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelupHUD/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Upgrades" type="HBoxContainer" parent="LevelupHUD/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Upgrade1Button" type="Button" parent="LevelupHUD/VBoxContainer/MarginContainer/Upgrades"]
+custom_minimum_size = Vector2(88, 221)
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="Upgrade2Button" type="Button" parent="LevelupHUD/VBoxContainer/MarginContainer/Upgrades"]
+custom_minimum_size = Vector2(88, 221)
+layout_mode = 2
+text = "Upgrade 1"
+
+[node name="Upgrade3Button" type="Button" parent="LevelupHUD/VBoxContainer/MarginContainer/Upgrades"]
+custom_minimum_size = Vector2(88, 221)
+layout_mode = 2
+text = "Upgrade 1"
 
 [editable path="InGameHUD/Joysticks/LeftJoystick"]
 [editable path="InGameHUD/Joysticks/RightJoystick"]
