@@ -8,5 +8,4 @@ func pickup_item(itemArea: Area2D) -> void:
 	Utils.deferr_free_node(item);
 	
 	if (item.item_name == "xp"):
-		# TODO: increment LevelData, when that's a thing
-		return;
+		LevelData.add_xp(1);

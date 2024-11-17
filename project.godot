@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 LevelManager="*res://Scripts/level/level_manager.gd"
 HudManager="*res://Scripts/hud/hud_manager.gd"
+LevelData="*res://Scripts/level/level_data.gd"
 
 [display]
 

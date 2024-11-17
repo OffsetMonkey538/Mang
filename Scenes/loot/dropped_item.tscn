@@ -10,6 +10,7 @@ size = Vector2(16, 16)
 script = ExtResource("1_1co6y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -10
 texture = ExtResource("2_dyvso")
 
 [node name="Area2D" type="Area2D" parent="."]
